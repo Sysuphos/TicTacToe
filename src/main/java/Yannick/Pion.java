@@ -2,17 +2,17 @@ package Yannick;
 
 public class Pion {
 
-    String name;
+    String valeur;
 
     public Pion() {
-        this.name = "O";
+        this.valeur = "O";
     }
 
-    public String getName() {
-        return name;
+    public String getValeur() {
+        return valeur;
     }
 
-    public void setName(String name) {
-            this.name = name;
+    public void setValeur(String valeur) {
+            this.valeur = valeur;
     }
 }

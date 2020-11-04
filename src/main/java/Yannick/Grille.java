@@ -12,21 +12,29 @@ public class Grille {
     }
 
     public boolean isWinningGrille(){
-        if (this.grille[0][0].getName().equals("X") && this.grille[1][0].getName().equals("X") && this.grille[2][0].getName().equals("X")){
+        if ((this.grille[0][0].getValeur().equals("X") && this.grille[1][0].getValeur().equals("X") && this.grille[2][0].getValeur().equals("X"))
+            || (this.grille[0][0].getValeur().equals("O") && this.grille[1][0].getValeur().equals("O") && this.grille[2][0].getValeur().equals("O"))){
             return true;
-        }else if(this.grille[0][1].getName().equals("X") && this.grille[1][1].getName().equals("X") && this.grille[2][1].getName().equals("X")){
+        }else if((this.grille[0][1].getValeur().equals("X") && this.grille[1][1].getValeur().equals("X") && this.grille[2][1].getValeur().equals("X"))
+            || (this.grille[0][1].getValeur().equals("O") && this.grille[1][1].getValeur().equals("O") && this.grille[2][1].getValeur().equals("O"))){
             return true;
-        }else if(this.grille[0][2].getName().equals("X") && this.grille[1][2].getName().equals("X") && this.grille[2][2].getName().equals("X")){
+        }else if((this.grille[0][2].getValeur().equals("X") && this.grille[1][2].getValeur().equals("X") && this.grille[2][2].getValeur().equals("X"))
+            || (this.grille[0][2].getValeur().equals("O") && this.grille[1][2].getValeur().equals("O") && this.grille[2][2].getValeur().equals("O"))){
             return true;
-        }else if(this.grille[0][0].getName().equals("X") && this.grille[0][1].getName().equals("X") && this.grille[0][2].getName().equals("X")){
+        }else if((this.grille[0][0].getValeur().equals("X") && this.grille[0][1].getValeur().equals("X") && this.grille[0][2].getValeur().equals("X"))
+            || (this.grille[0][0].getValeur().equals("O") && this.grille[0][1].getValeur().equals("O") && this.grille[0][2].getValeur().equals("O"))){
             return true;
-        }else if(this.grille[1][0].getName().equals("X") && this.grille[1][1].getName().equals("X") && this.grille[1][2].getName().equals("X")){
+        }else if((this.grille[1][0].getValeur().equals("X") && this.grille[1][1].getValeur().equals("X") && this.grille[1][2].getValeur().equals("X"))
+            || (this.grille[1][0].getValeur().equals("O") && this.grille[1][1].getValeur().equals("O") && this.grille[1][2].getValeur().equals("O"))){
             return true;
-        }else if(this.grille[2][0].getName().equals("X") && this.grille[2][1].getName().equals("X") && this.grille[2][2].getName().equals("X")){
+        }else if((this.grille[2][0].getValeur().equals("X") && this.grille[2][1].getValeur().equals("X") && this.grille[2][2].getValeur().equals("X"))
+            || (this.grille[2][0].getValeur().equals("O") && this.grille[2][1].getValeur().equals("O") && this.grille[2][2].getValeur().equals("O"))){
             return true;
-        }else if(this.grille[0][0].getName().equals("X") && this.grille[1][1].getName().equals("X") && this.grille[2][2].getName().equals("X")){
+        }else if((this.grille[0][0].getValeur().equals("X") && this.grille[1][1].getValeur().equals("X") && this.grille[2][2].getValeur().equals("X"))
+            || (this.grille[0][0].getValeur().equals("O") && this.grille[1][1].getValeur().equals("0") && this.grille[2][2].getValeur().equals("0"))){
             return true;
-        }else if(this.grille[2][0].getName().equals("X") && this.grille[1][1].getName().equals("X") && this.grille[0][2].getName().equals("X")){
+        }else if((this.grille[2][0].getValeur().equals("X") && this.grille[1][1].getValeur().equals("X") && this.grille[0][2].getValeur().equals("X"))
+            || (this.grille[2][0].getValeur().equals("O") && this.grille[1][1].getValeur().equals("0") && this.grille[0][2].getValeur().equals("0"))){
             return true;
         }return false;
     }
@@ -45,7 +53,7 @@ public class Grille {
     public void displayGrille(){
         System.out.println("    A   B   C");
         for(int i = 0 ; i< this.grille.length ; i++){
-            System.out.println((i+1) +" | " + this.grille[i][0].getName() + " | " + this.grille[i][1].getName() + " | " + this.grille[i][2].getName() + " |");
+            System.out.println((i+1) +" | " + this.grille[i][0].getValeur() + " | " + this.grille[i][1].getValeur() + " | " + this.grille[i][2].getValeur() + " |");
             if(i<2) {
                 System.out.println("  -------------");
             }
@@ -57,7 +65,7 @@ public class Grille {
     }
 
     public void setGrille(int ordonnee, int abscisse) {
-        this.grille[ordonnee-1][abscisse].setName("X");
+        this.grille[ordonnee-1][abscisse].setValeur("X");
 
     }
 }
