@@ -31,10 +31,10 @@ public class Grille {
             || (this.grille[2][0].getValeur().equals("O") && this.grille[2][1].getValeur().equals("O") && this.grille[2][2].getValeur().equals("O"))){
             return true;
         }else if((this.grille[0][0].getValeur().equals("X") && this.grille[1][1].getValeur().equals("X") && this.grille[2][2].getValeur().equals("X"))
-            || (this.grille[0][0].getValeur().equals("O") && this.grille[1][1].getValeur().equals("0") && this.grille[2][2].getValeur().equals("0"))){
+            || (this.grille[0][0].getValeur().equals("O") && this.grille[1][1].getValeur().equals("O") && this.grille[2][2].getValeur().equals("O"))){
             return true;
         }else if((this.grille[2][0].getValeur().equals("X") && this.grille[1][1].getValeur().equals("X") && this.grille[0][2].getValeur().equals("X"))
-            || (this.grille[2][0].getValeur().equals("O") && this.grille[1][1].getValeur().equals("0") && this.grille[0][2].getValeur().equals("0"))){
+            || (this.grille[2][0].getValeur().equals("O") && this.grille[1][1].getValeur().equals("O") && this.grille[0][2].getValeur().equals("O"))){
             return true;
         }return false;
     }
@@ -64,8 +64,29 @@ public class Grille {
         return grille;
     }
 
-    public void setGrille(int ordonnee, int abscisse) {
+    public boolean checkGrille(){
+        for(int i = 0 ; i< this.grille.length ; i++){
+            for(int j = 0 ; j < this.grille[i].length; j++){
+                if(this.grille[i][j].getValeur().equals(" ")){
+                    return true;
+                }
+            }   
+        }
+        return false;
+    }
+    public boolean checkPosition(int ordonnee, int abscisse){
+        if(this.grille[ordonnee-1][abscisse].getValeur().equals(" ")){
+            return true;
+        }
+        return false;
+    }
+    public void setGrilleX(int ordonnee, int abscisse) {
         this.grille[ordonnee-1][abscisse].setValeur("X");
+    }
+    public void setGrilleO(int ordonnee, int abscisse) {
+
+            this.grille[ordonnee-1][abscisse].setValeur("O");
+
 
     }
 }

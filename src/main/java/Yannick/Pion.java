@@ -5,7 +5,7 @@ public class Pion {
     String valeur;
 
     public Pion() {
-        this.valeur = "O";
+        this.valeur = " ";
     }
 
     public String getValeur() {

@@ -57,7 +57,7 @@ public class Jeu {
 
             this.chosePlayer(joueur1,joueur2);
 
-            while (!joueur1.getWinner() && !joueur2.getWinner()) {
+            while (!joueur1.getWinner() && !joueur2.getWinner() && grille.checkGrille()) {
                 int abscisse = -1;
                 int ordonnee = -1;
                 String abscisseString = " ";
@@ -95,7 +95,15 @@ public class Jeu {
                 }
                 if (abscisse != -1 && ordonnee != -1) {
                     try{
-                        grille.setGrille(ordonnee, abscisse);
+                        if(joueur1.isPlaying && grille.checkPosition(ordonnee, abscisse)){
+                            grille.setGrilleX(ordonnee, abscisse);   
+                        }else if(joueur2.isPlaying && grille.checkPosition(ordonnee, abscisse)){
+                            grille.setGrilleO(ordonnee, abscisse); 
+                        }else{
+                            System.out.println("Cette position est ivalide!");
+                            joueur1.setPlaying(!joueur1.getPlaying());
+                            joueur2.setPlaying(!joueur2.getPlaying());
+                        }
                         joueur1.setPlaying(!joueur1.getPlaying());
                         joueur2.setPlaying(!joueur2.getPlaying());
                     }catch (Exception e){
@@ -125,14 +133,20 @@ public class Jeu {
                         grille.setNewGrille();
                         this.chosePlayer(joueur1,joueur2);
                     }
+                }else if(!grille.checkGrille()){
+                    System.out.println("Vous êtes Exe aequo!");
+                    System.out.println("Tapez 'j' pour rejouer ou une autre touche pour quitter.");
+                    answer = sc.next().toLowerCase();
+                    if(answer.equals("j")){
+                        grille.setNewGrille();
+                        this.chosePlayer(joueur1,joueur2);
+                    }
                 }
 
             }
 
         }
-        else {
-            System.out.println("Fin de partie");
-        }
+        System.out.println("Fin de partie");
     }
 
 
